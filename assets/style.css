@@ -10,12 +10,21 @@
 
 }
 :root{
-    --main-color:#1b5f25;
+    /* --main-color:#1b5f25; */
+    /* --main-color:#1e9ae0; */
+    /* --main-color:#e1b2f0; */
+    /* --main-color:#9926c0; */
+    /* --main-color2:#441155; */
+    --main-color:#1e9ae0;
+    --main-color2:#136391;
+
+    
+    
 }
 
 /* navbar */
 body {
-  background: rgba(0, 0, 0, 0.756) url(images/background/bg.webp);
+  background: rgba(0, 0, 0, 0.756) url(images/background/bg4.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   backface-visibility: visible;
@@ -52,7 +61,7 @@ body {
   margin-left: 20px;
   margin-right: 10px;
   font-weight: bold;
-  color: rgb(7, 142, 7);
+  color: var(--main-color);
   cursor: pointer;
 }
 .list{
@@ -132,22 +141,47 @@ line-height: 50px;
 color: white;
 position: relative;
 }
+.home_sub2 ul li ,a{
+  text-decoration: none;
+  list-style: none;
+
+}
+
 .hbtn{
         padding: 10px 20px;
         background: transparent;
         color: whitesmoke;
-        border: 1.2px solid green;
+        border: 1.2px solid var(--main-color);
         font-size: 22px;
         margin: 20px 20px;
         font-variant: small-caps;
     font-family: 'kanit', sans-serif;
-
+    position: relative;
+    
 }
+.hbtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s ease;
+  z-index: -1; /* Ensure the pseudo-element is behind the button text */
+}
+.hbtn:hover::before {
+  transform: scaleX(1);
+}
+
+
 
 .home-content__line {
   width: 2px;
   height: 7.2rem;
-  background-color: green;
+  background-color: var(--main-color);
   position: absolute;
   right: 7.2rem;
   bottom: -32px;  
@@ -157,7 +191,7 @@ position: relative;
 .home-content__line3 {
   width: 2px;
   height: 4rem;
-  background-color: #2dde47;
+  background-color: var(--main-color);
   position: absolute;
   left: 50%;
   bottom: -32px;
@@ -175,7 +209,7 @@ position: relative;
 
 /* about */
 .about{
-    background: var(--main-color);
+    background: var(--main-color2);
     padding: 100px 20px;
     color: whitesmoke;
     position: relative;
@@ -217,7 +251,7 @@ position: relative;
     
 }
 .about_con p {
-    color: rgb(184, 180, 180);
+  color: rgb(231 224 224);
     font-size: 21px;
     padding: 0px 40px;
     line-height: 43px;
@@ -305,7 +339,7 @@ position: relative;
         font-size: 45px;
         padding: 10px 5px;
         font-weight: bold;
-        color: green;
+        color: var(--main-color);
     text-align: center;
 
     }
@@ -319,7 +353,7 @@ position: relative;
     .service_sub h3{
         font-variant: small-caps;
     text-align: center;
-    color: #2e7a2c;
+    color: var(--main-color2);
 
 
     }
@@ -371,7 +405,7 @@ position: relative;
     line-height: 1.333;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #2e7a2c;
+    color: var(--main-color);
     font-weight: bold;
     text-align: center;
 
@@ -392,7 +426,7 @@ hr {
 }
 .project_content img{
   width: 100%;
-  margin-top: 30px;
+  margin-top: 6px;
   /* filter: invert(9%) sepia(98%) saturate(5%) hue-rotate(121deg) brightness(97%) contrast(103%); */
 
 }
@@ -415,54 +449,81 @@ hr {
 .project_con2{
   padding-bottom: 80px;
 }
-.project_content .col-lg-4 img{
-  cursor: pointer;
-  display: block;
-  border-radius: 10px;
-  border: 2px inset white;
+.project_card{
+    /* width: 100%; */
+    /* height: 100%; */
+    /* padding: 2em 1.5em; */
+    border-radius: 5px;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    transition: 0.5s;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    background: #fff;
+    /* padding: 10px 20px; */
+    
+}
+.project_card::after{
+  content: "";
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient( circle farthest-corner at 95.2% 99.8%,  #46aff1 0%, rgb(15, 11, 11) 30% );
+    position: absolute;
+    left: 0%;
+    top: -98%;
+    z-index: -2;
+    transition: all 0.4s cubic-bezier(0.77, -0.04, 0, 0.99);
+}
+
+.project_card:hover::after{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#0f0f0f,  #39acf39f);
+  position: absolute;
+  left: 0%;
+  top: -0%;
+  z-index: 100;
+  transition: all 0.4s cubic-bezier(0.77, -0.04, 0, 0.99);
 }
 .p_hover {
-  background: rgba(11, 19, 10, 0.779);
+  /* background: rgba(11, 19, 10, 0.779); */
   position: absolute;
-  padding: 145px 120px !important;
+  /* padding: 145px 120px !important; */
   width: 94%;
-  top: 30px;
+  bottom: 0px;
   left: 3%;
-  border: 3px solid green;
+  /* border: 3px solid green; */
   visibility: hidden;
   transition: visibility 0.2s, opacity 0.2s;
-  opacity: 0; /* For smooth transition */
+  opacity: 0;
   border-radius: 10px;
+  z-index: 1000;
 }
 
 .image_container:hover .p_hover {
   visibility: visible;
-  opacity: 1; /* For smooth transition */
+  opacity: 1;
  
 
 }
 .p_hover h3{
   background: #ffffff;
   font-weight: bolder;
-  padding: 5px 20px;
+  padding: 5px 10px;
   animation: bounce 1.2s infinite;
   transition: 1.5s;
   border-radius: 10px;
+  width: auto;
+  text-align: center;
 }
 .p_hover a{
- 
-  
     font-size: 15px;  
     text-align: center;
     text-decoration: none;
-    color: rgb(26, 206, 26);
+    color:var(--main-color);
   margin-left: 5px;
-  
-
-
-   
-    
-    
     
 }
 @keyframes bounce {
@@ -488,7 +549,7 @@ hr {
 /* contact */
 .contact{
   padding: 100px 20px;
-  background: rgba(0, 0, 0, 0.655)url('images/background/contact-bg.jpg.webp');
+  background: rgba(0, 0, 0, 0.655)url('images/background/bg4.jpg');
   /* background: #008000; */
   background-repeat: no-repeat;
   background-size:cover ;
@@ -506,6 +567,7 @@ hr {
 }
 .contact form{
   display: block;
+  color: white;
 }
 .contact_con h1 {
   font-size: 4.5rem;
@@ -520,32 +582,68 @@ hr {
 }
 .contact form{
   padding-left: 20px;
+  padding-bottom: 30px;
 }
 .contact_con form input{
   width: 100%;
   background: transparent;
-  padding: 10px 0px;
+  padding: 10px 5px;
   border: none;
+  color: white;
   margin-bottom: 30px;
   border-bottom: 1px solid var(--main-color);
 }
 .contact_con form textarea{
   width: 100%;
   background: transparent;
-  padding: 20px 20px;
+  padding: 10px !important;
   border: none;
+  color: white;
   border-bottom: 1px solid var(--main-color);
 }
-.contact_con form button{
-  width: 100%;
-  background: var(--main-color);
+.contact_con form button {
   padding: 10px 20px;
-  margin-top: 20px;
-  color: whitesmoke;
+  background: transparent;
+  width: 85%;
+  color: rgba(255, 255, 255, 0.833);
+  border: 1.2px solid var(--main-color);
+  font-size: 22px;
+  margin: auto;
+  margin-top: 40px;
+  margin-left: 30px;
+  font-variant: small-caps;
+  font-family: 'Kanit', sans-serif;
+  position: relative;
+  overflow: hidden; /* Ensures the animation stays within the button */
+  z-index: 1; /* Ensure the button text stays above the pseudo-element */
+}
+
+
+.contact_con form button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s ease;
+  z-index: -1; /* Ensure the pseudo-element is behind the button text */
+}
+
+.contact_con form button:hover::before {
+  transform: scaleX(1);
+  
 }
 .contact_con form input::placeholder{
   font-size: 13px;
-  padding: 0px;
+  padding: 10px 0px;
+}
+.contact_con form textarea::placeholder{
+  font-size: 13px;
+  padding: 10px 0px;
 }
 .contact_info{
   background: black;
@@ -555,7 +653,7 @@ hr {
 }
 .contact_info ul li{
   list-style: none;
-  color: green;
+  color: var(--main-color);
   /* font-weight: bold; */
   padding: 20px 20px;
   font-size: 23px;
@@ -576,7 +674,7 @@ hr {
 
 }
 .contact_info i{
-  color: green;
+  color: var(--main-color);
   font-size: 25px;
   padding: 10px;
   margin-top: 20px;
@@ -634,22 +732,10 @@ footer{
 }
 
 @media (max-width:1180px) {
-  .p_hover {
-   
-    padding: 123px 96px !important;
-  
-    
-}
+ 
 }
 @media (max-width:985px) {
-  .p_hover {
-    padding: 130px 96px !important;
-}
-.p_hover h3 {
   
-  padding: 6px 35px;
-  
-}
 }
 @media (max-width:939px) {
     .home_content h1 {
@@ -728,9 +814,7 @@ footer{
     margin-bottom: 44px;
    
 }
-.p_hover {
-  padding: 220px 180px !important;
-}
+
 .about {
   
   padding: 100px 8px;
@@ -777,9 +861,11 @@ footer{
     font-family: 'kanit', sans-serif;
   
   }
-  .p_hover {
-    padding: 210px 161px !important;
+  .menu .span_menu {
+    font-size: 20px;
+    padding: 10px 21px;
 }
+
 
   
 
@@ -795,6 +881,7 @@ footer{
 .home_sub2 ul{
   padding: 10px;
 }
+
 .home_sub2 i {
   font-size: 20px;
 }
@@ -804,10 +891,7 @@ font-size: 18px;
 margin: 15px 18px;
 
 }
-.menu .span_menu {
-  font-size: 24px;
- 
-}
+
 
 .header_con {
    
@@ -830,25 +914,10 @@ margin: 15px 18px;
 }
 }
 @media (max-width: 523px) {
-  .p_hover {
-      padding: 191px 161px !important;
-  }
-  .p_hover h3{
-    padding: 6px 10px;
   
-  }
-  .p_hover {
-    padding: 192px 182px;
-
-}
 }
 @media (max-width:504px) {
-  .p_hover {
-    padding: 190px 125px !important;
-}
-.p_hover h3{
-  text-align: center;
-}
+  
 }
 
 @media (max-width:459px) {
@@ -891,16 +960,12 @@ margin: 15px 18px;
   padding: 10px 2px;
  
 }
-.p_hover {
-  padding: 169px 145px;
-}
+
 }
 
 @media (max-width:423px) {
   
-  .p_hover {
-    padding: 156px 125px !important;
-}
+ 
     .hbtn {
         padding: 10px 15px;
         font-size: 12px;
@@ -964,9 +1029,7 @@ footer {
     .project_con {
         margin-bottom: 10px;
     }
-.p_hover {
-  padding: 126px 96px !important;
-}
+
 .service_card p {
   font-size: 14px;
  
@@ -987,5 +1050,90 @@ footer {
 .contact_con form button {
     font-size: 14px;
 }
+
+}
+@media (max-width:366px) {
+  .menu .span_menu {
+    font-size: 18px;
+}
+.header_con .logo img {
+  width: 65px;
+}
+
+.home_content h5 {
+  font-size: 17px;
+}
+.home_content h1 {
+  font-size: 1.4rem;
+  /* padding: 7px 20px; */
+}
+.home_content p {
+  
+ 
+  font-size: 12px;
+  /* padding: 1px 20px !important; */
+}
+.home-content__line2 {
+  height: 3rem;
+}
+.home-content__line {
+  height: 3rem;
+}
+.service_card {
+ padding: 10px;
+  text-align: center;
+}
+.service_sub h3{
+  font-size: 22px;
+}
+.contact_con {
+  width: 100%;
+}
+
+}
+@media (max-width:318px) {
+  .home_content h1 {
+    font-size: 1.3rem;
+   
+}
+.service_con h1 {
+  font-size: 1.3rem;
+}
+.service_sub h3{
+  font-size: 16px;
+}
+.service_sub i{
+  font-size: 35px;
+}
+.service_card p {
+  font-size: 12px;
+  line-height: 19px;
+}
+.service_con h5{
+  font-size: 0.7rem;
+}
+.project_con h5{
+  font-size: 0.7rem;
+}
+.project_con h1 {
+  font-size: 1rem;
+}
+.contact_con h5 {
+  font-size: 13px;
+}
+.contact{
+  padding: 10px;
+}
+.contact .form {
+  padding: 10px 5px;
+}
+.contact_con form button {
+ 
+  margin-left: 14px;
+ 
+}
+
+
+
 
 }
